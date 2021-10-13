@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.0 on win32)" generated="20211012 18:04:40.183" rpa="false" schemaversion="2">
+<suite id="s1" name="FastShopLogin" source="C:\Users\mateu\PycharmProjects\RobotFramework\FastShopLogin.robot">
+<test id="s1-t1" name="Validate UnSuccesful Login">
+<kw name="Open the browser with the Fast Shop url">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20211012 18:04:40.353" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20211012 18:04:40.353" endtime="20211012 18:04:41.412"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.fastshop.com.br/</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211012 18:04:41.413" level="INFO">Opening browser 'firefox' to base url 'https://www.fastshop.com.br/'.</msg>
+<msg timestamp="20211012 18:04:41.415" level="INFO">Firefox driver log is always forced to to: C:\Users\mateu\PycharmProjects\RobotFramework\geckodriver-37.log</msg>
+<status status="PASS" starttime="20211012 18:04:41.412" endtime="20211012 18:04:51.337"/>
+</kw>
+<status status="PASS" starttime="20211012 18:04:40.353" endtime="20211012 18:04:51.337"/>
+</kw>
+<kw name="Click on the Enter Login button">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id:redirect-login</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211012 18:04:51.337" level="INFO">Clicking element 'id:redirect-login'.</msg>
+<status status="PASS" starttime="20211012 18:04:51.337" endtime="20211012 18:04:51.605"/>
+</kw>
+<status status="PASS" starttime="20211012 18:04:51.337" endtime="20211012 18:04:51.609"/>
+</kw>
+<kw name="Fill the login form">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:document</arg>
+<arg>text=273.173.190-74</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211012 18:04:51.609" level="INFO">Typing text '273.173.190-74' into text field 'id:document'.</msg>
+<status status="PASS" starttime="20211012 18:04:51.609" endtime="20211012 18:04:51.902"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>text=r12345678</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20211012 18:04:51.902" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20211012 18:04:51.910" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20211012 18:04:51.954" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20211012 18:04:51.902" endtime="20211012 18:04:51.954"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:auto-btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211012 18:04:51.954" level="INFO">Clicking button 'id:auto-btn-login'.</msg>
+<status status="PASS" starttime="20211012 18:04:51.954" endtime="20211012 18:04:52.200"/>
+</kw>
+<status status="PASS" starttime="20211012 18:04:51.609" endtime="20211012 18:04:52.200"/>
+</kw>
+<kw name="Wait until it checks and dispalys a message">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Document_alert}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211012 18:04:52.201" endtime="20211012 18:04:52.215"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Error_alert}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211012 18:04:52.215" endtime="20211012 18:04:52.443"/>
+</kw>
+<status status="PASS" starttime="20211012 18:04:52.201" endtime="20211012 18:04:52.443"/>
+</kw>
+<kw name="Verify error message is correct">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${Document_alert}</arg>
+<arg>Você não tem cadastro na Fast Shop. Cadastre-se</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20211012 18:04:52.443" level="INFO">Verifying element 'css:.invalid-text' contains exact text 'Você não tem cadastro na Fast Shop. Cadastre-se'.</msg>
+<status status="PASS" starttime="20211012 18:04:52.443" endtime="20211012 18:04:52.467"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${Error_alert}</arg>
+<arg>Senha incorreta ou senha expirada</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20211012 18:04:52.467" level="INFO">Verifying element 'css:.err-msg' contains exact text 'Senha incorreta ou senha expirada'.</msg>
+<status status="PASS" starttime="20211012 18:04:52.467" endtime="20211012 18:04:52.475"/>
+</kw>
+<status status="PASS" starttime="20211012 18:04:52.443" endtime="20211012 18:04:52.475"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211012 18:04:52.475" endtime="20211012 18:04:53.311"/>
+</kw>
+<status status="PASS" starttime="20211012 18:04:40.353" endtime="20211012 18:04:53.311"/>
+</test>
+<doc>To validate login form</doc>
+<status status="PASS" starttime="20211012 18:04:40.183" endtime="20211012 18:04:53.311"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="FastShopLogin">FastShopLogin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
